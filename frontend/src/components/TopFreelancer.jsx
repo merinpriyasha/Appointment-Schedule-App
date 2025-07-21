@@ -1,9 +1,11 @@
-import React from "react";
-import { freelancers } from "../assets/assets";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 const TopFreelancer = () => {
 
   const navigate = useNavigate()
+
+  const {freelancers} = useContext(AppContext);
 
   return (
     <div className="flex flex-col items-center gap-4 my-16 text-gray-900 md:mx-10">
@@ -29,7 +31,7 @@ const TopFreelancer = () => {
           </div>
         ))}
       </div>
-      <button className="bg-green-50 text-gray-600 px-12 py-3 rounded-full mt-10">
+      <button onClick={() => {navigate('./freelancers'); scrollTo(0,0)}} className="bg-green-50 text-gray-600 px-12 py-3 rounded-full mt-10">
         more
       </button>
     </div>
